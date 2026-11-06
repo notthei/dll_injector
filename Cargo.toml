@@ -13,8 +13,7 @@ windows = { version = "0.58", features = [
 ] }
 
 [target.'cfg(not(target_os = "windows"))'.dependencies]
-# Windows専用のため他OSでは未サポート
 
 [[bin]]
 name = "dll_injector"
-path = "src/main.rs"
+path = "./main.rs"
