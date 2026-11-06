@@ -1,0 +1,20 @@
+[package]
+name = "dll_injector"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+windows = { version = "0.58", features = [
+    "Win32_Foundation",
+    "Win32_System_Threading",
+    "Win32_System_Memory",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_LibraryLoader",
+] }
+
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+# Windows専用のため他OSでは未サポート
+
+[[bin]]
+name = "dll_injector"
+path = "src/main.rs"
